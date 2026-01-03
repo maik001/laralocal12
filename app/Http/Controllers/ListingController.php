@@ -29,7 +29,8 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        Listing::create($request->validate([
+        Listing::create(
+            $request->validate([
                 'beds' => 'required|integer|min:0|max:70',
                 'baths' => 'required|integer|min:0|max:20',
                 'area' =>  'required|min:2|max:5',
@@ -56,17 +57,31 @@ class ListingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Listing $listing)
     {
-        //
+        return inertia('Listing/Edit',
+            ['listing' => $listing]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Listing $listing)
     {
-        //
+        $listing->update(
+            $request->validate([
+                'beds' => 'required|integer|min:0|max:70',
+                'baths' => 'required|integer|min:0|max:20',
+                'area' =>  'required|min:2|max:5',
+                'city' => 'required',
+                'code' => 'required',
+                'street' => 'required',
+                'street_nr' => 'required|integer|min:1|max:10000',
+                'price' => 'required|min:4|max:8'
+            ])
+        );
+
+        return redirect()->route('listing.index')->with('success', 'Listing was updated!');
     }
 
     /**
