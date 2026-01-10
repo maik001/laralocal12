@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import ListingComponent from '@/Components/ListingComponent.vue';
+import ListingComponent from '@/Components/Listing.vue';
 defineProps({
   listing: Object,
 });
