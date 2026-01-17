@@ -1,65 +1,67 @@
 <template>
   <form @submit.prevent="update">
-    <div>
-      <label for="beds">Beds</label>
-      <input type="number" v-model.number="form.beds" />
-      <div v-if="form.errors.beds"> {{ form.errors.beds }}</div>
-    </div>
+    <div class="grid grid-cols-6 gap-2">
+      <div class="col-span-2">
+        <label class="label" for="beds">Beds</label>
+        <input type="number" v-model.number="form.beds" class="input" />
+        <div v-if="form.errors.beds">{{ form.errors.beds }}</div>
+      </div>
 
-    <div>
-      <label for="baths">Baths</label>
-      <input type="number" v-model.number="form.baths" />
-      <div v-if="form.errors.baths"> {{ form.errors.baths }}</div>
-    </div>
+      <div class="col-span-2">
+        <label class="label" for="baths">Baths</label>
+        <input type="number" v-model.number="form.baths" class="input" />
+        <div v-if="form.errors.baths">{{ form.errors.baths }}</div>
+      </div>
 
-    <div>
-      <label for="area">Area</label>
-      <input type="number" v-model.number="form.area"/>
-      <div v-if="form.errors.area"> {{ form.errors.area }}</div>
-    </div>
+      <div class="col-span-2">
+        <label class="label" for="area">Area</label>
+        <input type="number" v-model.number="form.area" class="input" />
+        <div v-if="form.errors.area">{{ form.errors.area }}</div>
+      </div>
 
-    <div>
-      <label for="city">City</label>
-      <input type="text" v-model="form.city" />
-      <div v-if="form.errors.city"> {{ form.errors.city }}</div>
-    </div>
+      <div class="col-span-4">
+        <label class="label" for="city">City</label>
+        <input type="text" v-model="form.city" class="input" />
+        <div v-if="form.errors.city">{{ form.errors.city }}</div>
+      </div>
 
-    <div>
-      <label for="code">Code</label>
-      <input type="text" v-model="form.code" />
-      <div v-if="form.errors.code"> {{ form.errors.code }}</div>
-    </div>
+      <div class="col-span-2">
+        <label class="label" for="code">Code</label>
+        <input type="text" v-model="form.code" class="input" />
+        <div v-if="form.errors.code">{{ form.errors.code }}</div>
+      </div>
 
-    <div>
-      <label for="street">Street</label>
-      <input type="text" v-model="form.street"/>
-      <div v-if="form.errors.street"> {{ form.errors.street }}</div>
-    </div>
+      <div class="col-span-4">
+        <label class="label" for="street">Street</label>
+        <input type="text" v-model="form.street" class="input" />
+        <div v-if="form.errors.street">{{ form.errors.street }}</div>
+      </div>
 
-    <div>
-      <label for="street_br">Street number</label>
-      <input type="text" v-model.number="form.street_nr" />
-      <div v-if="form.errors.street_nr"> {{ form.errors.street_nr }}</div>
-    </div>
+      <div class="col-span-2">
+        <label class="label" for="street_br">Street number</label>
+        <input type="text" v-model.number="form.street_nr" class="input" />
+        <div v-if="form.errors.street_nr">{{ form.errors.street_nr }}</div>
+      </div>
 
-    <div>
-      <label for="price">Price</label>
-      <input type="text" v-model.number="form.price"/>
-      <div v-if="form.errors.price"> {{ form.errors.price }}</div>
-    </div>
+      <div class="col-span-6">
+        <label class="label" for="price">Price</label>
+        <input type="text" v-model.number="form.price" class="input" />
+        <div v-if="form.errors.price">{{ form.errors.price }}</div>
+      </div>
 
-    <div>
-      <button type="submit">Edit</button>
+      <div>
+        <button type="submit" class="btn-primary">Edit</button>
+      </div>
     </div>
   </form>
 </template>
 
 <script setup>
-import { useForm } from '@inertiajs/vue3';
+import { useForm } from "@inertiajs/vue3";
 
 const props = defineProps({
-	listing: Object,
-})
+  listing: Object,
+});
 
 const form = useForm({
   beds: props.listing.beds,
@@ -72,7 +74,7 @@ const form = useForm({
   price: props.listing.price,
 });
 
-const update = () => form.put(route('listing.update', [props.listing.id]));
+const update = () => form.put(route("listing.update", [props.listing.id]));
 </script>
 
 <style scoped>
