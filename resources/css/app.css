@@ -5,3 +5,16 @@
 @source '../**/*.blade.php';
 @source '../**/*.vue';
 
+
+@layer components {
+	.label {
+		@apply block mb-1 text-gray-600 dark:text-gray-300 font-medium
+	}
+
+	.input {
+		@apply block w-full p-2 rounded-md border border-gray-300 dark:border-gray-600 text-gray-500
+	}
+	.btn-primary {
+		@apply bg-blue-700 hover:bg-blue-600 font-medium text-white p-2 rounded-md
+	}
+}

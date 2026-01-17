@@ -8,7 +8,7 @@
                 <div class="text-xl text-red-600 text-center font-semibold">
                     <Link :href="route('listing.index')">LaraLocal</Link>&nbsp;
                 </div>
-                <div class="bg-blue-700 hover:bg-blue-600 font-medium text-white p-2 rounded-md">
+                <div class="btn-primary">
                     <Link :href="route('listing.create')">+ Add Listing</Link>&nbsp;
                 </div>
             </nav>
