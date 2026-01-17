@@ -14,9 +14,22 @@
 			</Box>
 			<Box>
 				<template #header>
-					Offer
+					Monthly Payment
 				</template>
-				Make an Offer
+				<div>
+					<label for="rate">Interest Rate (2.5 %)</label>
+					<input type="range" min="0.1" max="30" step="0.1"
+						   class="w-full h-4 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 mb-4" />
+
+					<label for="rate">Duration (25 years)</label>
+					<input type="range" min="3" max="35" step="1"
+						   class="w-full h-4 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
+
+					<div class="text-gray-600 dark:text-gray-300 mt-2">
+						<div class="text-gray-400">Your monthly Payment</div>
+						<Price :price="500" class="text-2xl font-bold"></Price>
+					</div>
+				</div>
 			</Box>
 		</div>
 	</div>
@@ -24,7 +37,6 @@
 
 <script setup>
 import Listing from '@/Components/Listing.vue';
-import ListingComponent from '@/Components/Listing.vue';
 import ListingItems from '@/Components/ListingItems.vue';
 import Price from '@/Components/Price.vue';
 import Box from '@/Components/UI/Box.vue';
